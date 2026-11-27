@@ -11,7 +11,8 @@
 | Estado global | **Base técnica verificada y migrada**: 19/19 migraciones aplicadas; `cuentas_usuario` creada y `auth_user` ausente |
 | Base de datos | PostgreSQL 18.7, base `sismodetect` — **10 tablas**, sin `auth_user` |
 | Migraciones | **19/19 aplicadas** el 2026-11-27 01:40:51 (-05:00) |
-| Git | **No inicializado** (no autorizado en esta fase) |
+| Git | **Inicializado y publicado** el 2026-11-27: rama `main`, primer commit `e4c00a0c7bbff45ab6cbb0134106ea33ce8d29ca` |
+| Repositorio | https://github.com/Francisalejandro/SismoDetect |
 
 > **Alcance respetado:** no se implementó adquisición sísmica, ni inferencia CNN, ni XAI, ni pantallas. No se modificaron los artefactos de `ia/pesos/cnn_v1/`, ni el dataset externo, ni `db.sqlite3`. No se creó ningún repositorio Git.
 
@@ -193,7 +194,7 @@ Para restringir realmente el acceso a otras bases habría que modificar la ACL d
 | Django Admin como herramienta interna | `Usuario` registrado en el admin |
 | CNN V1 y dataset intactos | No se abrió ni escribió ningún artefacto |
 | Migración inicial generada y aplicada | `cuentas.0001_initial` + 18 migraciones de Django; 10 tablas creadas |
-| Sin Git | No se ejecutó `git init` ni commit |
+| Repositorio Git | Inicializado y publicado en GitHub el 2026-11-27 (detalle en la sección 15) |
 | Sin funcionalidades adelantadas | Apps vacías, sin vistas ni plantillas |
 
 ---
@@ -277,7 +278,7 @@ $env:Path += ';D:\Escuela\Posgre SQL\bin'
 | I06 | `obspy` y herramientas de prueba ausentes | Necesarias en fases 1–2 | Instalar cuando se autoricen |
 | I07 | ~~`apps/__init__.py` menciona `catalogacion` y `api`~~ | **RESUELTO** | Docstring actualizado a las cinco apps reales |
 | I08 | `README.md` desactualizado | Confusión menor | **RESUELTO el 2026-11-27**: actualizado al estado real (implementado / pendiente) |
-| I09 | Sin repositorio Git | Sin trazabilidad | Autorización pendiente |
+| I09 | ~~Sin repositorio Git~~ | **RESUELTO el 2026-11-27** | Repositorio inicializado, primer commit creado y publicado en GitHub |
 | I10 | `db.sqlite3` vacío conservado | Ninguno funcional | No eliminar sin autorización |
 | I11 | `CONNECT` heredado de `PUBLIC` sobre `postgres` y `medicamentos_cuba` | El rol puede conectarse a bases ajenas aunque no tenga permisos sobre objetos | No se elimina revocando solo al rol; exige modificar la ACL de `PUBLIC` o la política del servidor. **Pendiente de autorización**; sin `GRANT`/`REVOKE` ejecutados |
 
@@ -608,3 +609,24 @@ Esta ruta se verificó durante la auditoría de solo lectura del 2026-11-27. **N
 - No se modificó ningún CSV, JSON ni archivo del dataset durante esta revisión.
 
 **Conclusión:** para reproducir la partición de la CNN V1, usar `colab/splits_alternativo.csv` (columna `split_alternativo`) y contrastar con `colab/split_alternativo_resumen.json`. `metadata.csv` y la columna `split` son referencias históricas, no la fuente vigente.
+
+---
+
+## 15. Publicación inicial en GitHub (2026-11-27)
+
+Con autorización expresa del propietario se completó la primera publicación del proyecto, conservando el estado técnico validado de la Fase 0.
+
+| Elemento | Resultado comprobado |
+|---|---|
+| Repositorio local | Inicializado con `git init -b main`; sin historial previo que sobrescribir |
+| Remoto | `origin` → `https://github.com/Francisalejandro/SismoDetect.git`; el remoto estaba vacío |
+| Primer commit | `e4c00a0c7bbff45ab6cbb0134106ea33ce8d29ca` — `chore: initial publication of SismoDetect` |
+| Contenido publicado | 82 archivos; ~0.88 MiB; 7044 inserciones |
+| Publicación | `git push -u origin main` correcto; sin `--force` |
+| Sincronización | `main` = `origin/main` = commit anterior; árbol de trabajo limpio |
+| CNN V1 | Los seis artefactos y su inventario aparecen en el repositorio; SHA-256 6/6 correctos también en el índice Git |
+| Exclusiones | `.env`, `.venv/`, `.idea/`, `__pycache__/`, `db.sqlite3`, logs, cachés y datos sísmicos locales no fueron publicados |
+
+El detalle de preparación, reglas de `.gitignore`, contenido de `.gitattributes` y verificaciones está en `documentacion/INFORME_PREPARACION_GIT.md`.
+
+**La Fase 0 está oficialmente cerrada. No se ha iniciado la Fase 1.**

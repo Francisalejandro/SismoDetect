@@ -5,13 +5,14 @@
 | Campo | Valor |
 |---|---|
 | Fecha | 2026-11-27 |
-| Fase | Fase 0 — preparación del primer commit (sin publicar) |
-| Alcance | Solo `.gitignore`, `.gitattributes`, revisión de `.env.example` y este informe |
-| Repositorio local | **No inicializado** (sin `.git`, sin commits, sin remotos locales) |
-| Repositorio remoto | No conectado ni modificado en esta tarea |
-| Resultado | Preparación completada; pendiente de revisión humana |
+| Fase | Fase 0 — primera publicación oficial completada |
+| Alcance | `.gitignore`, `.gitattributes`, revisión de `.env.example`, inicialización y publicación |
+| Repositorio local | Inicializado en `main`; remoto `origin` configurado |
+| Repositorio remoto | `https://github.com/Francisalejandro/SismoDetect.git`; `origin/main` sincronizada |
+| Primer commit | `e4c00a0c7bbff45ab6cbb0134106ea33ce8d29ca` |
+| Resultado | **Publicación completada** el 2026-11-27; ver sección 11 |
 
-> No se ejecutaron `git init`, `git add`, `git commit`, `git push`, `git pull`, `git reset`, `git clean` ni `git rm`. No se imprimieron valores de `.env` ni se copiaron credenciales reales.
+> Durante la fase de preparación no se ejecutaron operaciones Git de escritura. La publicación posterior sí ejecutó, con autorización expresa, `git init`, `git remote add`, `git add`, `git commit` y `git push -u origin main`. No se imprimieron valores de `.env` ni se copiaron credenciales reales.
 
 ---
 
@@ -235,20 +236,36 @@ Revisión de nombres y rutas: **0 rutas con caracteres no ASCII, espacios proble
 |---|---|---|
 | R01 | ALTO | `.env` contiene secretos reales. La única barrera es `.gitignore`; debe comprobarse de nuevo justo antes del primer `git add`. |
 | R02 | MEDIO | La regla global `*.csv` protege contra datos locales, pero impedirá versionar CSV legítimos futuros salvo excepción explícita. |
-| R03 | MEDIO | La verificación de exclusiones es una simulación de patrones, no una salida real de `git check-ignore`, porque el repositorio no está inicializado. Debe repetirse con Git tras `git init`. |
-| R04 | BAJO | El repositorio remoto es público y está vacío; el primer push creará el historial. No debe usarse `--force` después. |
+| R03 | RESUELTO | La simulación de patrones se repitió con `git check-ignore` tras `git init`; los resultados coincidieron y se comprobó el área de preparación antes del commit. |
+| R04 | BAJO | El repositorio es público y el primer push creó el historial. No debe usarse `--force` en pushes posteriores. |
 | R05 | BAJO | `DEBUG=True`, backend de correo de consola y ausencia de HSTS/SSL siguen siendo configuraciones de desarrollo, no de producción. |
 
 No se detectaron credenciales en `.env.example`, claves privadas, tokens ni copias del dataset dentro del proyecto.
 
 ---
 
-## 10. Confirmación final
+## 10. Confirmación de la fase de preparación
 
-- No se ejecutaron operaciones Git de escritura ni publicación.
-- No se inicializó el repositorio local ni se conectó al remoto.
+- Durante la preparación no se ejecutaron operaciones Git de escritura ni publicación; la publicación se ejecutó después con autorización (sección 11).
 - No se modificaron código, migraciones, dependencias, configuración Django ni base de datos.
 - No se modificaron los artefactos de la CNN V1; sus 6 hashes siguen siendo correctos.
-- La Fase 0 está oficialmente cerrada. La publicación se está ejecutando.
+- La Fase 0 está oficialmente cerrada.
 
-**Estado: listo para revisión humana. Detener antes de `git init` o de cualquier commit.**
+---
+
+## 11. Publicación completada (2026-11-27)
+
+| Paso | Resultado |
+|---|---|
+| `git init -b main` | Repositorio local inicializado en `main`. |
+| `git remote add origin https://github.com/Francisalejandro/SismoDetect.git` | Remoto configurado; no existía `origin` previo. |
+| `git add -A` | 82 archivos preparados; sin `.env`, `.venv/`, `.idea/`, cachés, logs, bases locales ni datos sísmicos. |
+| `git diff --cached --check` | Solo avisos de whitespace en un documento histórico y en `INFORME_FINAL_CNN_V1.md`; este último es un artefacto con hash congelado y no se modificó. |
+| Primer commit | `e4c00a0c7bbff45ab6cbb0134106ea33ce8d29ca` — `chore: initial publication of SismoDetect`; 82 archivos, 7044 inserciones. |
+| `git push -u origin main` | Correcto; rama `main` configurada para seguir `origin/main`. No se usó `--force`. |
+| Verificación remota | API de GitHub confirma el commit y los 8 entradas de `ia/pesos/cnn_v1/` (6 artefactos + inventario + `.gitkeep`). |
+| Sincronización | `main` y `origin/main` apuntan al mismo commit; árbol de trabajo limpio. |
+
+Enlace: https://github.com/Francisalejandro/SismoDetect
+
+**Estado: publicación completada. No se inicia la Fase 1.**

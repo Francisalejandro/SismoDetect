@@ -7,7 +7,8 @@ Cuba mediante inteligencia artificial.
 > SismoDetect **no predice terremotos ni es un sistema de alerta temprana**.
 
 **Estado:** Fase 0 — base técnica verificada y **cerrada oficialmente** el
-2026-11-27. No se ha iniciado la Fase 1.
+2026-11-27. Primera publicación completada en GitHub (commit inicial
+`e4c00a0`). No se ha iniciado la Fase 1.
 
 ---
 
@@ -84,7 +85,7 @@ El modelo de usuario activo es `cuentas.Usuario` (`AUTH_USER_MODEL`), basado en
 - Carga de la CNN, preprocesamiento e inferencia integrada en Django.
 - Vistas, formularios, plantillas, interfaz web e historial.
 - XAI complementaria.
-- Repositorio Git, copias de seguridad y endurecimiento para producción.
+- Copias de seguridad y endurecimiento para producción.
 - Pruebas funcionales de las apps distintas de `cuentas`.
 
 **El sistema todavía no clasifica señales desde la web.**
@@ -145,6 +146,9 @@ python -m pip install -r requirements\tensorflow.txt  # Django con CNN/IA
 | `documentacion/REVISION_ADMIN_CUENTAS.md` | Política de permisos del admin y sus límites de verificación. |
 | `documentacion/INSPECCION_CNN_V1.md` | Inspección histórica del modelo. |
 | `documentacion/AUDITORIA_FASE_0.md` | Auditoría histórica del estado inicial (2026-11-25). |
+| `documentacion/INFORME_PREPARACION_GIT.md` | Preparación y publicación inicial en GitHub. |
+
+Repositorio: https://github.com/Francisalejandro/SismoDetect
 
 La Fase 0 está oficialmente cerrada. El inicio de la Fase 1 requiere decisión
 expresa del usuario.
