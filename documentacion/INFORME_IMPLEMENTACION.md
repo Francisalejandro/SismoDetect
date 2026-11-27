@@ -14,7 +14,7 @@
 | Git | **Inicializado y publicado** el 2026-11-27: rama `main`, primer commit `e4c00a0c7bbff45ab6cbb0134106ea33ce8d29ca` |
 | Repositorio | https://github.com/Francisalejandro/SismoDetect |
 
-> **Alcance respetado:** no se implementó adquisición sísmica, ni inferencia CNN, ni XAI, ni pantallas. No se modificaron los artefactos de `ia/pesos/cnn_v1/`, ni el dataset externo, ni `db.sqlite3`. No se creó ningún repositorio Git.
+> **Alcance respetado:** no se implementó adquisición sísmica, ni inferencia CNN, ni XAI, ni pantallas. No se modificaron los artefactos de `ia/pesos/cnn_v1/`, ni el dataset externo, ni `db.sqlite3`. Durante la implementación de la Fase 0 no se creó ningún repositorio Git; la inicialización y la publicación posteriores se registran en la sección 15.
 
 > **Nota de revisión documental (2026-11-27):** se corrigieron contradicciones sobre migraciones y tablas, se identificaron los documentos históricos, se actualizó `README.md`, se aclaró la advertencia sobre una migración cosmética y se documentó la fuente canónica de las particiones del dataset (sección 14). El detalle del admin está en `documentacion/REVISION_ADMIN_CUENTAS.md`.
 
