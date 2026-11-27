@@ -1,0 +1,26 @@
+{
+    "mejor_modelo_cnn_v1.keras": {
+        "sha256": "cd9e8962d1cdc2977ef15854a416a89c87591d489d870d86f2b64a05e3f2a0d5",
+        "bytes": 602838
+    },
+    "estadisticas_normalizacion.npz": {
+        "sha256": "dea35212ca9e992ef6895e465f331e3ba43ea1e87bee15507ccf83ad16d5b32d",
+        "bytes": 1344
+    },
+    "manifiesto_preprocesamiento.json": {
+        "sha256": "f61217fd1cad73c127993f589160067d7995dd5c81103f3439660f0cb6c6e8ed",
+        "bytes": 1011
+    },
+    "seleccion_umbral_v1.json": {
+        "sha256": "78228b4433efb6cbe5907311003948e9af92e5952dfe6b7cf38e0c9c11680475",
+        "bytes": 756
+    },
+    "configuracion_entrenamiento.json": {
+        "sha256": "cb7ecf197538ed7e0d7bc4b8b4cc77a22e162324e978eaf480dd10d7f5f4cc45",
+        "bytes": 1873
+    },
+    "INFORME_FINAL_CNN_V1.md": {
+        "sha256": "48cd811353c29a64aa3f9115274dac2c8c659c38280d70717246ac9f7527a772",
+        "bytes": 6301
+    }
+}

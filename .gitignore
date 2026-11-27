@@ -1,0 +1,90 @@
+# Entorno virtual y configuración del IDE
+.venv/
+.idea/
+.vscode/
+*.iml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.mypy_cache/
+.tox/
+.nox/
+
+# Django
+db.sqlite3
+*.sqlite3
+*.db
+*.log
+media/
+staticfiles/
+
+# Datos y artefactos de IA (grandes o generados)
+# Los modelos futuros se excluyen por defecto; CNN V1 está permitida explícitamente.
+data/entrada/*
+!data/entrada/.gitkeep
+data/temporal/*
+!data/temporal/.gitkeep
+data/registros/*
+!data/registros/.gitkeep
+logs/*
+!logs/.gitkeep
+*.h5
+*.keras
+!ia/pesos/cnn_v1/mejor_modelo_cnn_v1.keras
+*.tflite
+*.pb
+*.ckpt
+*.sav
+*.onnx
+*.pt
+*.pth
+*.safetensors
+
+# Señales, datos locales y resultados
+# No existen CSV en el repositorio actual; si se añade uno legítimo
+# (código, documentación o configuración) debe permitirse de forma explícita.
+*.mseed
+*.miniseed
+*.npy
+*.csv
+
+# Claves y certificados
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Comprimidos y temporales
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.7z
+*.rar
+*.tmp
+*.temp
+*.bak
+*.old
+*.swp
+*.swo
+
+# Pruebas y herramientas
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+
+# Sistema operativo
+Thumbs.db
+.DS_Store
+
+# Entorno local (la plantilla sin secretos sí se publica)
+.env
+.env.*
+!.env.example

@@ -1,0 +1,27 @@
+{
+    "version": "CNN_V1",
+    "modelo": "mejor_modelo_cnn_v1.keras",
+    "sha256_modelo": "cd9e8962d1cdc2977ef15854a416a89c87591d489d870d86f2b64a05e3f2a0d5",
+    "conjunto_seleccion": "validacion",
+    "metodo": "Maximizar Macro F1; desempate por cercania a 0.5",
+    "umbral": 0.2927532196044922,
+    "metricas_validacion": {
+        "macro_f1": 0.9093718676912796,
+        "f1_ruido": 0.9041095890410958,
+        "f1_sismo": 0.9146341463414634,
+        "precision_sismo": 0.9259259259259259,
+        "recall_sismo": 0.9036144578313253,
+        "balanced_accuracy": 0.910140562248996
+    },
+    "matriz_confusion": [
+        [
+            66,
+            6
+        ],
+        [
+            8,
+            75
+        ]
+    ],
+    "test_utilizado": false
+}

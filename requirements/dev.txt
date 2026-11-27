@@ -1,0 +1,12 @@
+# Herramientas generales de desarrollo y pruebas de SismoDetect.
+# Instalar: pip install -r requirements/dev.txt
+# Incluye las dependencias básicas (no incluye TensorFlow).
+
+-r base.txt
+
+# Sin fijar: aún no están instaladas en el entorno virtual.
+# Se fijarán con pip freeze cuando se decida instalarlas.
+pytest
+pytest-django
+pytest-cov
+ruff

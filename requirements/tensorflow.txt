@@ -1,0 +1,13 @@
+# Dependencias para ejecutar Django junto con la CNN y la IA (TensorFlow).
+# Instalar: pip install -r requirements/tensorflow.txt
+# Si Django no necesita IA, basta con requirements/base.txt.
+# Incluye las dependencias básicas.
+
+-r base.txt
+
+# Versiones fijadas para reducir la deriva numérica entre entrenamiento y
+# ejecución. El modelo fue guardado con Keras 3.13.2; se ejecuta con 3.15.1.
+tensorflow==2.21.0
+keras==3.15.1
+numpy==2.5.5
+h5py==3.14.0

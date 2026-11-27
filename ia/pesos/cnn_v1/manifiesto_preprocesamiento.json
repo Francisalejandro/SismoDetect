@@ -1,0 +1,41 @@
+{
+    "version": "CNN_V1",
+    "fecha_utc": "2026-11-17T01:50:43.103169+00:00",
+    "dataset": "split_alternativo",
+    "semilla_split": 2026,
+    "frecuencia_hz": 100,
+    "duracion_segundos": 30,
+    "muestras_por_segmento": 3000,
+    "canales": [
+        "Z",
+        "N",
+        "E"
+    ],
+    "tipo_dato": "float32",
+    "preprocesamiento": [
+        "Restar la media temporal por segmento y canal",
+        "Estandarizacion global por canal usando exclusivamente TRAIN",
+        "Aplicar las estadisticas de TRAIN a VALIDACION y TEST"
+    ],
+    "estadisticas": {
+        "media_train": [
+            0.0006783410790376365,
+            0.0007371546817012131,
+            3.24415486829821e-05
+        ],
+        "desviacion_train": [
+            14287.1103515625,
+            15959.3994140625,
+            13554.525390625
+        ]
+    },
+    "cantidades": {
+        "train": 1245,
+        "validacion": 155,
+        "test": 155
+    },
+    "etiquetas": {
+        "0": "ruido",
+        "1": "sismo"
+    }
+}

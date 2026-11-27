@@ -1,0 +1,7 @@
+# Entorno de desarrollo y pruebas con IA de SismoDetect.
+# Instalar: pip install -r requirements/dev-ia.txt
+# Combina las dependencias de TensorFlow y las herramientas generales
+# de desarrollo (definidas en dev.txt), sin duplicarlas.
+
+-r tensorflow.txt
+-r dev.txt

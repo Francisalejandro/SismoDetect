@@ -1,0 +1,34 @@
+# Normalización de finales de línea para archivos de texto.
+# Git guarda LF en el índice y decide la conversión al hacer checkout.
+* text=auto
+
+*.py         text eol=lf
+*.md         text eol=lf
+*.txt        text eol=lf
+*.json       text eol=lf
+*.yml        text eol=lf
+*.yaml       text eol=lf
+*.ini        text eol=lf
+*.cfg        text eol=lf
+*.gitignore  text eol=lf
+*.gitattributes text eol=lf
+*.gitkeep    text eol=lf
+*.example    text eol=lf
+
+# Archivos binarios: sin conversión de finales de línea.
+*.keras   binary
+*.npz     binary
+*.npy     binary
+*.pyc     binary
+*.sqlite3 binary
+*.db      binary
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.ico     binary
+*.pdf     binary
+
+# Artefactos congelados de la CNN V1: conservar los bytes exactos,
+# porque sus hashes SHA-256 están registrados en inventario_sha256.json.
+ia/pesos/cnn_v1/** -text

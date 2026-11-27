@@ -1,0 +1,76 @@
+{
+    "experimento": "CNN_Sismica_V1",
+    "semilla": 2026,
+    "tensorflow": "2.21.0",
+    "numpy": "2.4.6",
+    "sistema_operativo": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "hardware": "CPU",
+    "dataset": {
+        "frecuencia_hz": 100,
+        "duracion_segundos": 30,
+        "muestras": 3000,
+        "canales": [
+            "Z",
+            "N",
+            "E"
+        ],
+        "etiquetas": {
+            "0": "ruido",
+            "1": "sismo"
+        },
+        "train": 1245,
+        "validacion": 155,
+        "test": 155
+    },
+    "preprocesamiento": {
+        "version": "CNN_V1",
+        "eliminar_media_temporal": true,
+        "normalizacion_global_por_canal": true,
+        "estadisticas_calculadas_con": "train"
+    },
+    "arquitectura": {
+        "tipo": "CNN_1D",
+        "entrada": [
+            3000,
+            3
+        ],
+        "capas_conv1d": [
+            32,
+            64,
+            128
+        ],
+        "dense": 64,
+        "dropout": 0.3,
+        "salida": "sigmoid",
+        "parametros": 44705
+    },
+    "entrenamiento": {
+        "epocas_maximas": 100,
+        "batch_size": 32,
+        "optimizador": "Adam",
+        "learning_rate_inicial": 0.001,
+        "funcion_perdida": "binary_crossentropy",
+        "shuffle": true,
+        "pesos_por_clase": false,
+        "aumento_datos": false
+    },
+    "callbacks": {
+        "checkpoint": {
+            "monitor": "val_loss",
+            "save_best_only": true,
+            "mode": "min"
+        },
+        "reduce_lr": {
+            "factor": 0.5,
+            "patience": 5,
+            "min_lr": 1e-05
+        },
+        "early_stopping": {
+            "patience": 10,
+            "restore_best_weights": true
+        }
+    },
+    "seleccion_modelo": "Menor val_loss",
+    "seleccion_umbral": "Macro F1 sobre validacion",
+    "test": "Reservado para evaluacion final"
+}
